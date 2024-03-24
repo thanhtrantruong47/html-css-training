@@ -1,0 +1,53 @@
+.contact {
+  @extend %flexbox-items-space-between;
+  @extend %flexbox-items-centered;
+  flex-wrap: wrap;
+  border-radius: toRem(20px);
+  background-color: $color-primary;
+  color: $color-text-secondary;
+  padding: toRem(32px) toRem(24px);
+  gap: toRem(32px);
+  margin: 0 auto toRem(31.58px);
+  width: math.div(358,390)*100%;
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    gap: toRem(12px);
+    margin: 0 auto;
+    max-width: toRem(311px);
+    font-size: toRem(14px);
+  }
+
+  &__form {
+    border-radius: toRem(62px);
+    background-image: url("/assets/images/footers/email-icon.svg");
+    background-repeat: no-repeat;
+    background-position: center left toRem(10px);
+    padding: toRem(11.5px) toRem(112px) toRem(11.5px) toRem(48px);
+    border: 1px solid $color-secondary;
+    min-height: toRem(42px);
+    outline: none;
+  }
+}
+
+
+@include desktop {
+  .contact {
+    padding: toRem(36px) toRem(64px);
+    margin-bottom: toRem(50px);
+    font-size: toRem(16px);
+
+    &__box {
+      min-width: toRem(349px);
+      gap: toRem(14px);
+      margin: 0;
+      font-size: toRem(16px);
+    }
+
+    &__form {
+      min-height: toRem(52px);
+      font-weight: 400;
+    }
+  }
+}

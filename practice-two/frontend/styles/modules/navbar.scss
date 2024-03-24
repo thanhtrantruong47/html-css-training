@@ -1,0 +1,69 @@
+
+.navbar {
+  gap: toRem(12px);
+  @extend %flexbox-items-centered;
+  margin: 0 toRem(16px);
+  gap: toRem(12px);
+  margin: 0 auto;
+
+
+  &__option {
+    display: flex;
+    margin-left: auto;
+    gap: toRem(10px);
+  }
+
+  &__list,
+  &__search {
+    display: none;
+  }
+
+  &__nav {
+    border: none;
+    background-color: $color-text-secondary;
+  }
+}
+
+@include desktop {
+  .navbar {
+    display: grid;
+    grid-template-columns: toRem(160px) toRem(321px) 1fr toRem(62px);
+    gap: toRem(40px);
+    font-size: toRem(16px);
+    align-items: center;
+
+    &__nav,
+    &__option-search {
+      display: none;
+    }
+
+    &__option {
+      justify-content: space-around;
+      margin-left: 0;
+    }
+
+    &__logo {
+      width: 100%;
+    }
+
+    &__list {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__search {
+      display: block;
+      height: toRem(48px);
+      border-radius: toRem(62px);
+      width: 100%;
+      background-image: url('/assets/images/headers/search.svg');
+      background-repeat: no-repeat;
+      background-position: toRem(12px) toRem(12px);
+      padding: toRem(2px) toRem(52px);
+      border: toRem(1px) solid white;
+      background-color: $color-secondary;
+      outline: none;
+    }
+  }
+}

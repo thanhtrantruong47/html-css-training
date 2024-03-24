@@ -1,0 +1,60 @@
+export function Brand() {
+  return (
+    <section className="brand">
+      <div className="brand__wrapper">
+        <img
+          className="brand__img"
+          src="./assets/images/brands/versace.png"
+          alt="versace"
+        />
+        <img
+          className="brand__img"
+          src="./assets/images/brands/zara.png"
+          alt="zara"
+        />
+        <img
+          className="brand__img"
+          src="./assets/images/brands/gucci.png"
+          alt="gucci"
+        />
+        <img
+          className="brand__img"
+          src="./assets/images/brands/prada.png"
+          alt="prada"
+        />
+        <img
+          className="brand__img"
+          src="./assets/images/brands/calvin.png"
+          alt="calvin"
+        />
+      </div>
+      <div className="brand__wrapper-xxl container">
+        <img
+          className="brand__img"
+          src="./assets/images/brands/versace-desktop.svg"
+          alt="versace-desktop"
+        />
+        <img
+          className="brand__img"
+          src="./assets/images/brands/zara-desktop.png"
+          alt="zara-desktop"
+        />
+        <img
+          className="brand__img"
+          src="./assets/images/brands/gucci-desktop.svg"
+          alt="gucci-desktop"
+        />
+        <img
+          className="brand__img"
+          src="./assets/images/brands/prada-desktop.svg"
+          alt="prada-desktop"
+        />
+        <img
+          className="brand__img"
+          src="./assets/images/brands/calvin-desktop.svg"
+          alt="calvin-desktop"
+        />
+      </div>
+    </section>
+  );
+}
