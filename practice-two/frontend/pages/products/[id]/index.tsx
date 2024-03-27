@@ -40,6 +40,8 @@ export async function getStaticPaths() {
 
 // eslint-disable-next-line @next/next/no-async-client-component
 export default function Product({ product, reviews, arrivals }) {
+  const [colorOfProduct, setColorOfProduct] = useState(null);
+  const [sizeOfProduct, setSizeOfProduct] = useState(null);
   const [amountOfProduct, setAmountOfProduct] = useState(1);
 
   const fullStarCount = Math.floor(product.rating);
@@ -53,6 +55,30 @@ export default function Product({ product, reviews, arrivals }) {
 
   const decrement = () => {
     setAmountOfProduct(Math.max(amountOfProduct - 1, 0));
+  };
+
+  const addToCart = () => {
+    if (!colorOfProduct) {
+      alert("Please choose color product");
+      return;
+    }
+
+    if (!sizeOfProduct) {
+      alert("Please choose size product");
+      return;
+    }
+
+    const products = JSON.parse(localStorage.getItem("productsInCart") || "[]");
+
+    products.push({
+      product: product,
+      color: colorOfProduct,
+      size: sizeOfProduct,
+      amount: amountOfProduct,
+    });
+
+    localStorage.setItem("productsInCart", JSON.stringify(products));
+    alert("Successfully added to cart");
   };
 
   return (
@@ -151,6 +177,8 @@ export default function Product({ product, reviews, arrivals }) {
                       name={"radio" + index}
                       style={{ backgroundColor: color }}
                       key={"radio" + index}
+                      value={color}
+                      onClick={() => setColorOfProduct(color)}
                     />
                   );
                 })}
@@ -163,7 +191,9 @@ export default function Product({ product, reviews, arrivals }) {
                   return (
                     <button
                       className="detail__btn btn btn--secondary"
-                      key={"size" + index}
+                      key={index}
+                      value={size}
+                      onClick={() => setSizeOfProduct(size)}
                     >
                       {size}
                     </button>
@@ -177,7 +207,10 @@ export default function Product({ product, reviews, arrivals }) {
                 <span className="num">{amountOfProduct}</span>
                 <span className="plus icon-plus" onClick={increment}></span>
               </div>
-              <button className="detail__number-num btn btn--primary">
+              <button
+                className="detail__number-num btn btn--primary"
+                onClick={addToCart}
+              >
                 add to cart
               </button>
             </div>

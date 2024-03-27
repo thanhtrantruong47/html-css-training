@@ -15,10 +15,11 @@ export default function Login() {
       body: formData,
     });
 
+    const data = await response.json();
     if (response.ok) {
+      localStorage.setItem("token", data.token);
       router.push("/");
     } else {
-      const data = await response.json();
       alert(data.detail);
     }
   }

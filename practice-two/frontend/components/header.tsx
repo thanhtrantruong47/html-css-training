@@ -54,7 +54,11 @@ export function Header() {
               aria-label="icon-search"
               href="#"
             ></a>
-            <a className="link icon-cart" aria-label="icon-cart" href="#"></a>
+            <a
+              className="link icon-cart"
+              aria-label="icon-cart"
+              href="/cart"
+            ></a>
             <a className="link icon-login" aria-label="icon-login" href="#"></a>
           </div>
         </nav>
